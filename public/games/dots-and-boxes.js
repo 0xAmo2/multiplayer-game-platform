@@ -82,16 +82,21 @@ function initDots_multi(containerId, onComplete, socket, roomCode, currentUser, 
             </div>
           `).join('')}
         </div>` : ''}
-      ${m ? `
+      ${allDone ? `
+        <div style="text-align:center;padding:40px 20px;">
+          <div class="mem-loader"></div>
+          <p style="margin-top:16px;color:var(--cyan);font-family:'Orbitron',sans-serif;letter-spacing:2px;">Moving to next game…</p>
+        </div>
+      ` : m ? `
         <div class="db-scoreboard">
           <div class="db-team" style="--c:${c1}"><div class="db-team-name">${escapeHtmlSafe(m.p1Name)}</div><div class="db-team-score">${m.scores[m.p1]}</div></div>
           <div class="db-vs">VS</div>
           <div class="db-team" style="--c:${c2}"><div class="db-team-name">${escapeHtmlSafe(m.p2Name)}</div><div class="db-team-score">${m.scores[m.p2]}</div></div>
         </div>
+        <div class="db-board-wrap">
+          <svg class="db-board" id="db-board" viewBox="0 0 ${30*2 + 70*5} ${30*2 + 70*5}" width="100%" preserveAspectRatio="xMidYMid meet"></svg>
+        </div>
       ` : ''}
-      <div class="db-board-wrap">
-        <svg class="db-board" id="db-board" viewBox="0 0 ${30*2 + 70*5} ${30*2 + 70*5}" width="100%" preserveAspectRatio="xMidYMid meet"></svg>
-      </div>
       ${state.message ? `<p class="db-hint">${escapeHtmlSafe(state.message)}</p>` : ''}
     `;
 

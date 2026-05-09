@@ -92,18 +92,23 @@ function initC4_multi(containerId, onComplete, socket, roomCode, currentUser, is
             </div>
           `).join('')}
         </div>` : ''}
-      ${m ? `
+      ${allDone ? `
+        <div style="text-align:center;padding:40px 20px;">
+          <div class="mem-loader"></div>
+          <p style="margin-top:16px;color:var(--cyan);font-family:'Orbitron',sans-serif;letter-spacing:2px;">Moving to next game…</p>
+        </div>
+      ` : m ? `
         <div class="c4-scoreboard">
           <div class="c4-team" style="--c:${c1}"><span class="c4-disc"></span><span class="c4-team-name">${escapeHtmlSafe(m.p1Name)}</span></div>
           <div class="c4-vs">VS</div>
           <div class="c4-team" style="--c:${c2}"><span class="c4-disc"></span><span class="c4-team-name">${escapeHtmlSafe(m.p2Name)}</span></div>
         </div>
+        <div class="c4-board-wrap">
+          <div class="c4-arrow-row" id="c4-arrows"></div>
+          <div class="c4-board" id="c4-board"></div>
+        </div>
+        ${m.finished && m.winner ? `<div class="c4-winner-banner" style="--c:${colorFor(m.winner, players)}">🏆 Winner: ${escapeHtmlSafe(m.winner === m.p1 ? m.p1Name : m.p2Name)}</div>` : ''}
       ` : ''}
-      <div class="c4-board-wrap">
-        <div class="c4-arrow-row" id="c4-arrows"></div>
-        <div class="c4-board" id="c4-board"></div>
-      </div>
-      ${m && m.finished && m.winner ? `<div class="c4-winner-banner" style="--c:${colorFor(m.winner, players)}">🏆 Winner: ${escapeHtmlSafe(m.winner === m.p1 ? m.p1Name : m.p2Name)}</div>` : ''}
       ${state.message ? `<p class="db-hint">${escapeHtmlSafe(state.message)}</p>` : ''}
     `;
 

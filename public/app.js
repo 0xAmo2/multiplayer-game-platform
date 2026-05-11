@@ -6,40 +6,61 @@ let currentGameInstance = null;
 
 const pages = {
   login: `
-    <div class="login-hero">
-      <div class="login-wrapper">
-        <div class="card" style="text-align:center;">
-          <h1 class="arena-logo">ARENA</h1>
-          <p class="arena-subtitle">Multiplayer Game Platform</p>
-          <div class="input-group">
-            <span class="input-icon">👤</span>
-            <input type="text" id="nickname" placeholder="Enter your username" autocomplete="off">
-          </div>
-          <button class="btn-primary" id="login-btn">⚡ Enter Arena</button>
-        </div>
+    <div class="login-page">
+      <div class="login-top">
+        <h1 class="arena-logo">ARENA</h1>
+        <p class="arena-tagline">Play. Compete. Win.</p>
+        <p class="arena-subtitle">4 games · Solo or Multiplayer · 2–4 players</p>
       </div>
-      <div class="help-panel">
-        <h2 class="help-title">📖 How to Play</h2>
-        <p class="help-intro">ARENA is a multiplayer game platform with 4 exciting games. Play solo against AI or challenge your friends online!</p>
-        <div class="help-game">
-          <div class="help-game-icon">🧠</div>
-          <div><strong>Memory Match</strong><br><span class="text-muted">Memorize highlighted cells on a grid, then recall them from memory. Each level gets harder. In multiplayer, all players compete on the same pattern simultaneously.</span></div>
+      <div class="login-hero">
+        <div class="login-wrapper">
+          <div class="card login-card">
+            <h2 class="login-card-title">🚀 Get Started</h2>
+            <p class="login-card-sub">Pick a name and jump in — no sign-up needed!</p>
+            <div class="input-group">
+              <span class="input-icon">👤</span>
+              <input type="text" id="nickname" placeholder="Your display name" autocomplete="off">
+            </div>
+            <button class="btn-primary" id="login-btn">⚡ Enter Arena</button>
+            <div class="login-features">
+              <div class="login-feature"><span>🎮</span> Play solo vs AI</div>
+              <div class="login-feature"><span>🌐</span> Online multiplayer</div>
+              <div class="login-feature"><span>🏆</span> Live rankings</div>
+            </div>
+          </div>
         </div>
-        <div class="help-game">
-          <div class="help-game-icon">🃏</div>
-          <div><strong>UNO</strong><br><span class="text-muted">Classic card game — match cards by color or number, use action cards strategically, and be the first to empty your hand. All players compete together.</span></div>
-        </div>
-        <div class="help-game">
-          <div class="help-game-icon">⬛</div>
-          <div><strong>Dots & Boxes</strong><br><span class="text-muted">Take turns drawing lines between dots. Complete a box to claim it and score a point. The player with the most boxes wins. 1v1 round-robin matches.</span></div>
-        </div>
-        <div class="help-game">
-          <div class="help-game-icon">🔴</div>
-          <div><strong>4 in a Row</strong><br><span class="text-muted">Drop discs into columns and line up 4 in a row — vertically, horizontally, or diagonally. 1v1 round-robin matches.</span></div>
-        </div>
-        <div class="help-section">
-          <strong>🌐 Multiplayer</strong><br>
-          <span class="text-muted">Create a party (2–4 players), share the room code, and play all 4 games in one session. Points accumulate across all games. Final rankings are shown at the end!</span>
+        <div class="help-panel">
+          <h2 class="help-title">🎲 The Games</h2>
+          <div class="help-games-grid">
+            <div class="help-card help-memory">
+              <div class="help-card-icon">🧠</div>
+              <h3>Memory Match</h3>
+              <p>Memorize a pattern of cells, then recall them. Gets harder each level. In multiplayer, everyone plays the same pattern at once!</p>
+            </div>
+            <div class="help-card help-uno">
+              <div class="help-card-icon">🃏</div>
+              <h3>UNO</h3>
+              <p>Match cards by color or number. Use skips, reverses & wilds to outsmart opponents. First to empty your hand wins!</p>
+            </div>
+            <div class="help-card help-dots">
+              <div class="help-card-icon">⬛</div>
+              <h3>Dots & Boxes</h3>
+              <p>Draw lines between dots to complete boxes. Claim the most territory to win. Round-robin 1v1 matches.</p>
+            </div>
+            <div class="help-card help-c4">
+              <div class="help-card-icon">🔴</div>
+              <h3>4 in a Row</h3>
+              <p>Drop discs into columns — line up 4 horizontally, vertically or diagonally. Round-robin 1v1 matches.</p>
+            </div>
+          </div>
+          <div class="help-how">
+            <h3 class="help-how-title">🌐 How Multiplayer Works</h3>
+            <div class="help-steps">
+              <div class="help-step"><span class="help-step-num">1</span><span>Create a party & share the room code</span></div>
+              <div class="help-step"><span class="help-step-num">2</span><span>Play all 4 games in one session</span></div>
+              <div class="help-step"><span class="help-step-num">3</span><span>Points add up — highest score wins!</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

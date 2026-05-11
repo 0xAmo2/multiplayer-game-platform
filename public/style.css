@@ -1249,6 +1249,72 @@ hr { border-color: rgba(255,255,255,0.07); margin: 24px 0; }
   letter-spacing: 2px;
 }
 
+/* ── LOGIN HERO + HELP PANEL ── */
+.login-hero {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  max-width: 960px;
+  width: 100%;
+}
+.login-hero .login-wrapper {
+  flex: 0 0 400px;
+}
+.help-panel {
+  flex: 1;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  padding: 32px;
+  box-shadow: 0 30px 60px -12px rgba(0,0,0,0.4);
+}
+.help-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: var(--cyan);
+  margin-bottom: 12px;
+}
+.help-intro {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.help-game {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.help-game-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.help-game strong {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.help-game .text-muted {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+.help-section {
+  padding-top: 14px;
+  font-size: 0.9rem;
+}
+.help-section strong {
+  color: var(--text);
+}
+.help-section .text-muted {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
 /* ── MOBILE RESPONSIVE ── */
 @media (max-width: 768px) {
   .scoreboard {
@@ -1287,4 +1353,7 @@ hr { border-color: rgba(255,255,255,0.07); margin: 24px 0; }
   .game-container { min-height: 300px; }
   .mode-grid { grid-template-columns: 1fr; }
   .games-grid { grid-template-columns: 1fr; }
+  .login-hero { flex-direction: column; align-items: stretch; }
+  .login-hero .login-wrapper { flex: auto; }
+  .help-panel { padding: 24px 18px; }
 }

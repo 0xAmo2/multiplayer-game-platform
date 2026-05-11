@@ -9,3 +9,11 @@ function generateId() {
     }
     return array;
   }
+
+  function playVictorySound() {
+    try {
+      const audio = new Audio('/sounds/victory.wav');
+      audio.volume = 0.7;
+      audio.play().catch(() => {});
+    } catch (e) { /* ignore */ }
+  }

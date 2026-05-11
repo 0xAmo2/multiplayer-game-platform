@@ -165,6 +165,7 @@ function initMemory_multi(containerId, socket, roomCode, isHost, onComplete) {
   }
 
   function renderGameOver(state) {
+    playVictorySound();
     try {
       const ranked = (state.players || [])
         .map(p => ({ ...p, score: (state.finalScores && state.finalScores[p.socketId]) || 0 }))
@@ -311,6 +312,7 @@ function initMemory_solo(containerId, difficulty, onComplete) {
       const pts = currentLevel * 100; score += pts; scoreSpan.innerText = score;
       if (currentLevel === maxLevel) {
         statusDiv.innerHTML = '<span style="color:var(--green)">🎉 Perfect Memory!</span>';
+        playVictorySound();
         gameActive = false; startBtn.style.display = 'inline-block'; startBtn.textContent = '🔄 Play Again';
         if (onComplete) onComplete({ single: score });
         return;

@@ -6,15 +6,41 @@ let currentGameInstance = null;
 
 const pages = {
   login: `
-    <div class="login-wrapper">
-      <div class="card" style="text-align:center;">
-        <h1 class="arena-logo">ARENA</h1>
-        <p class="arena-subtitle">Multiplayer Game Platform</p>
-        <div class="input-group">
-          <span class="input-icon">👤</span>
-          <input type="text" id="nickname" placeholder="Enter your username" autocomplete="off">
+    <div class="login-hero">
+      <div class="login-wrapper">
+        <div class="card" style="text-align:center;">
+          <h1 class="arena-logo">ARENA</h1>
+          <p class="arena-subtitle">Multiplayer Game Platform</p>
+          <div class="input-group">
+            <span class="input-icon">👤</span>
+            <input type="text" id="nickname" placeholder="Enter your username" autocomplete="off">
+          </div>
+          <button class="btn-primary" id="login-btn">⚡ Enter Arena</button>
         </div>
-        <button class="btn-primary" id="login-btn">⚡ Enter Arena</button>
+      </div>
+      <div class="help-panel">
+        <h2 class="help-title">📖 How to Play</h2>
+        <p class="help-intro">ARENA is a multiplayer game platform with 4 exciting games. Play solo against AI or challenge your friends online!</p>
+        <div class="help-game">
+          <div class="help-game-icon">🧠</div>
+          <div><strong>Memory Match</strong><br><span class="text-muted">Memorize highlighted cells on a grid, then recall them from memory. Each level gets harder. In multiplayer, all players compete on the same pattern simultaneously.</span></div>
+        </div>
+        <div class="help-game">
+          <div class="help-game-icon">🃏</div>
+          <div><strong>UNO</strong><br><span class="text-muted">Classic card game — match cards by color or number, use action cards strategically, and be the first to empty your hand. All players compete together.</span></div>
+        </div>
+        <div class="help-game">
+          <div class="help-game-icon">⬛</div>
+          <div><strong>Dots & Boxes</strong><br><span class="text-muted">Take turns drawing lines between dots. Complete a box to claim it and score a point. The player with the most boxes wins. 1v1 round-robin matches.</span></div>
+        </div>
+        <div class="help-game">
+          <div class="help-game-icon">🔴</div>
+          <div><strong>4 in a Row</strong><br><span class="text-muted">Drop discs into columns and line up 4 in a row — vertically, horizontally, or diagonally. 1v1 round-robin matches.</span></div>
+        </div>
+        <div class="help-section">
+          <strong>🌐 Multiplayer</strong><br>
+          <span class="text-muted">Create a party (2–4 players), share the room code, and play all 4 games in one session. Points accumulate across all games. Final rankings are shown at the end!</span>
+        </div>
       </div>
     </div>
   `,
@@ -396,6 +422,7 @@ function setupSocketListeners() {
 
   socket.on('gameComplete', (data) => {
     currentRoom.players = data.players;
+    playVictorySound();
     updateScoreboard();
     document.getElementById('app').innerHTML = `
       <div class="card" style="max-width:560px;width:100%;text-align:center;">

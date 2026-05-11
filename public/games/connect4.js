@@ -150,6 +150,7 @@ function initC4_multi(containerId, onComplete, socket, roomCode, currentUser, is
 
     if (allDone && !myFinishSent) {
       myFinishSent = true;
+      playVictorySound();
       if (onComplete) onComplete(null);
     }
   }
@@ -216,6 +217,7 @@ function initC4_solo(containerId, onComplete, currentUser) {
         const win = checkWin(r, col, currentPlayer);
         if (win) {
           winningCells = win; winnerIdx = currentPlayer; gameActive = false;
+          playVictorySound();
           if (onComplete) onComplete({ [players[currentPlayer].id]: 200 });
         } else if (isDraw()) { gameActive = false; if (onComplete) onComplete({}); }
         else {

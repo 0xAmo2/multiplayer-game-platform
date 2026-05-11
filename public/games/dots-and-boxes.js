@@ -175,6 +175,7 @@ function initDots_multi(containerId, onComplete, socket, roomCode, currentUser, 
     // When all matches done, signal completion
     if (allDone && !myFinishSent) {
       myFinishSent = true;
+      playVictorySound();
       if (onComplete) onComplete(null);
     }
   }
@@ -258,6 +259,7 @@ function initDots_solo(containerId, onComplete, currentUser) {
     if (scores[0]+scores[1] === BOXES*BOXES) {
       gameActive = false;
       const winner = scores[0]===scores[1]? -1 : (scores[0]>scores[1]?0:1);
+      if (winner !== -1) playVictorySound();
       if (onComplete) {
         if (winner === -1) onComplete({});
         else onComplete({ [players[winner].id]: 100 + Math.max(...scores)*10 });

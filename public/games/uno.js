@@ -197,6 +197,7 @@ function initUNO_multi(containerId, onComplete, socket, roomCode, currentUser, i
     // If game is finished (winner), inform stage we're done
     if (state.winner && !finishedSent) {
       finishedSent = true;
+      playVictorySound();
       if (onComplete) onComplete(null);
     }
   }
@@ -347,6 +348,7 @@ function initUNO_solo(containerId, onComplete, currentUser) {
     else { currentColor = card.color; currentValue = card.value; }
     if (players[playerIdx].hand.length === 0) {
       gameActive = false;
+      playVictorySound();
       if (onComplete) onComplete({ [players[playerIdx].id]: 500 });
       render(`🏆 ${players[playerIdx].name} wins!`);
       return;
